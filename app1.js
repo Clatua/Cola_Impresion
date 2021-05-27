@@ -36,12 +36,13 @@ let lista=new FIFO();
 for(let i=1;i<=300;i++){
     let probabilidad=Math.random()*100+1
     if(probabilidad<=39){
-        let nuevo=new Trabajo(Math.random()*11+4);
+        let nuevo=new Trabajo(Math.floor(Math.random()*11+4));
         lista.agregar(nuevo);
         console.log("El ciclo ",i," se creo un nuevo ",nuevo.ciclos);
     }
     if(lista.ver()!=null){
         lista.ver().ciclos--;
+        console.log(lista.ver().ciclos)
         if(lista.ver().ciclos==0){
             console.log("El ciclo ",i," termino ");
             lista.extraer();
